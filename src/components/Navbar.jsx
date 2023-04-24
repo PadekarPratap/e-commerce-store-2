@@ -86,7 +86,7 @@ const Navbar = () => {
 
       {/* fixed side navigation for mobile devices  */}
       <div className={`fixed h-full w-2/3 bg-white z-[999] top-0 duration-500 ${isSideNavOpen ? 'left-0' : 'left-[-100%]'}`}>
-        <div className="py-8 px-5">
+        <div className="py-8 px-3">
           {/* Shop Logo  */}
           <div className="mb-12 flex items-center justify-between">
             <h1 className="text-3xl font-poppins uppercase">
