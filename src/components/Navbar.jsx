@@ -58,7 +58,8 @@ const Navbar = () => {
                 </ul>
               </div>
             </div>
-
+            
+            {/* overlay for when the dropdown is Open  */}
             <div onClick={() => setIsDropdownOpen(!isDropdownOpen)} className={isDropdownOpen ? "fixed inset-0 z-[998]" : 'hidden'}></div>
 
             {/* wishlist */}
