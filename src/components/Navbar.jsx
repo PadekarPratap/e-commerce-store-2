@@ -29,7 +29,7 @@ const Navbar = () => {
             {/* dropdown */}
             <div
               id="dropdown-container"
-              className="cursor-pointer relative hidden sm:block"
+              className="cursor-pointer relative hidden sm:block z-[999]"
             >
               <div
                 className="flex items-center border-2 p-2 rounded-md gap-2"
@@ -46,7 +46,7 @@ const Navbar = () => {
               <div
                 id="dropdown-content"
                 className={`border-2 rounded mt-3 absolute left-0 right-0 p-1 duration-200 ${
-                  isDropdownOpen
+                    isDropdownOpen
                     ? "opacity-100"
                     : "opacity-0 pointer-events-none translate-y-[-10px]"
                 }`}
@@ -58,6 +58,8 @@ const Navbar = () => {
                 </ul>
               </div>
             </div>
+
+            <div onClick={() => setIsDropdownOpen(!isDropdownOpen)} className={isDropdownOpen ? "fixed inset-0 z-[998]" : 'hidden'}></div>
 
             {/* wishlist */}
             <div className="items-center gap-1 cursor-pointer hidden sm:flex">
