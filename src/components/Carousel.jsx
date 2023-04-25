@@ -30,7 +30,7 @@ const Carousel = () => {
         <div className='w-full h-[50vh] rounded-lg relative group'>
             {
                 slides.map((slide, slideIndex) =>(
-                    <img className={`absolute w-full h-full object-cover object-top duration-500 rounded-lg ${currentIndex === slideIndex ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} src={slide.image} alt="" />
+                    <img key={slide.image} className={`absolute w-full h-full object-cover object-top duration-500 rounded-lg ${currentIndex === slideIndex ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} src={slide.image} alt="" />
                 ))
             }
 
@@ -52,7 +52,7 @@ const Carousel = () => {
             {/* dots  */}
             <div className='absolute bottom-5 flex gap-5 left-1/2 translate-x-[-50%]'>
                 {slides.map((slide, slideIndex) =>(
-                    <div role='button' onClick={() => setCurrentIndex(slideIndex)} className={`w-[10px] h-[10px] rounded-full ${slideIndex === currentIndex ? 'bg-shopDarkBlue' : 'bg-white'}`}></div>
+                    <div key={slide.image} role='button' onClick={() => setCurrentIndex(slideIndex)} className={`w-[10px] h-[10px] rounded-full ${slideIndex === currentIndex ? 'bg-shopDarkBlue' : 'bg-white'}`}></div>
                 ))}
             </div>
 
