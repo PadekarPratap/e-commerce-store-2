@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import CategoriesBar from '../components/CategoriesBar'
 import Carousel from '../components/Carousel'
 import useFetch from '../hooks/useFetch'
+import Categories from '../components/Categories'
 
 const HomePage = () => {
 
@@ -11,6 +12,7 @@ const HomePage = () => {
         <Navbar />
         <CategoriesBar />
         <Carousel />
+        <Categories />
     </div>
   )
 }
