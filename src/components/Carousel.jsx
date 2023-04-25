@@ -42,9 +42,9 @@ const Carousel = () => {
 
             {/* bg overlay  */}
             <div className='bg-black/60 absolute inset-0 rounded-lg flex items-center justify-center'>
-                <div className='text-center space-y-4 px-4'>
+                <div className='text-center space-y-2 px-4'>
                 <h1 className='text-white text-5xl font-poppins'>Shop<span className='text-shopBlue'>Lane</span></h1>
-                <p className='text-white font-roboto text-lg max-w-[800px]'>Upgrade Your Style Game with Our Wide Range of Fashionable Picks: From Classic to Contemporary, We've Got You Covered!</p>
+                <p className='text-white font-roboto text-lg max-w-[800px]'>Shop smart, look stylish - Your go-to destination for all things fashion, electronics, and jewelry! Get the best products at the most affordable prices.</p>
                 <button className='bg-shopDarkBlue text-white px-3 py-2 rounded-md'>Shop Now</button>
                 </div>
             </div>

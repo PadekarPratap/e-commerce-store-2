@@ -11,4 +11,19 @@
     padding-left: 20px;
     padding-right: 20px;
   }
+  .icons{
+    /* w-[60px] h-[60px] rounded-full border-2 border-white flex items-center justify-center */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .icons:hover{
+    border-color: #2563eb;
+    background-color: #2563eb;
+  }
 }
