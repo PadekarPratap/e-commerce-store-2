@@ -45,7 +45,7 @@ const Navbar = () => {
               </div>
               <div
                 id="dropdown-content"
-                className={`border-2 rounded mt-3 absolute left-0 right-0 p-1 duration-200 ${
+                className={`bg-white border-2 rounded mt-3 absolute left-0 right-0 p-1 duration-200 ${
                     isDropdownOpen
                     ? "opacity-100"
                     : "opacity-0 pointer-events-none translate-y-[-10px]"
