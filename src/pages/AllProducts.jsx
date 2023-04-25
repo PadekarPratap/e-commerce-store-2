@@ -6,6 +6,7 @@ import useFetch from "../hooks/useFetch";
 import { BASE_URL, ENDPOINTS } from "../api/Endpoints";
 import ProductCard from "../components/ProductCard";
 import BallTriangle from "react-loading-icons/dist/esm/components/ball-triangle";
+import Footer from "../components/Footer";
 
 const AllProducts = () => {
   const {
@@ -34,6 +35,7 @@ const AllProducts = () => {
           ))}
         </div>
       )}
+      <Footer />
     </div>
   );
 };

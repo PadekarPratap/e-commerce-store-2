@@ -24,7 +24,7 @@ const Footer = () => {
 
             <div className='grid lg:grid-cols-12 mt-6 gap-5'>
                 <div className='lg:col-span-7'>
-                    <h3 className='text-gray-400 text-center lg:text-left'>Stay up-to-date with the latest fashion, electronics, and jewelry trends, and be the first to know about exclusive deals and promotions by subscribing to our newsletter. Join our community today and elevate your shopping experience!</h3>
+                    <h3 className='text-gray-400 text-center lg:text-left px-4'>Stay up-to-date with the latest fashion, electronics, and jewelry trends, and be the first to know about exclusive deals and promotions by subscribing to our newsletter. Join our community today and elevate your shopping experience!</h3>
                 </div>
                 <div className='lg:col-span-5 text-center lg:text-right space-y-3'>
                     <p className='text-lg text-shopDarkBlue font-poppins uppercase'>Subscribe to Our Newsletter</p>
