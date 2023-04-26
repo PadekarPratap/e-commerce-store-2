@@ -5,6 +5,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsHeartFill } from "react-icons/bs";
 import { BiMenu } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -19,9 +20,9 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div>
-            <h1 className="text-3xl font-poppins uppercase">
+            <NavLink to={"/"} className="text-3xl font-poppins uppercase">
               Shop<span className="text-shopBlue">Lane</span>
-            </h1>
+            </NavLink>
           </div>
 
           {/* right section  */}

@@ -2,7 +2,7 @@ import React from "react";
 import {HiOutlineSearch} from 'react-icons/hi'
 import { BASE_URL, ENDPOINTS } from "../api/Endpoints";
 
-const TitleBar = ({setFilteredValue, setSearchQuery, searchQuery}) => {
+const TitleBar = ({setFilteredValue, setSearchQuery, searchQuery, title}) => {
 
   const handleSelect = (e) =>{
     setFilteredValue(e.target.value)
@@ -18,7 +18,7 @@ const TitleBar = ({setFilteredValue, setSearchQuery, searchQuery}) => {
       <div className="flex items-center md:justify-between gap-5 flex-col md:flex-row">
         {/* title  */}
         <div>
-          <h3 className="text-4xl font-thin text-center">All Products</h3>
+          <h3 className="text-4xl font-thin text-center capitalize">{title}</h3>
         </div>
 
         {/* search  */}
@@ -43,5 +43,9 @@ const TitleBar = ({setFilteredValue, setSearchQuery, searchQuery}) => {
     </div>
   );
 };
+
+TitleBar.defaultProps = {
+  title: 'All Products'
+}
 
 export default TitleBar;

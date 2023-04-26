@@ -20,7 +20,7 @@ const AllProducts = () => {
   const [filteredValue, setFilteredValue] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredProducts =
+  const sortedProducts =
     filteredValue === "all"
       ? products
       : [...(products ?? [])].sort((a, b) => {
@@ -50,7 +50,7 @@ const AllProducts = () => {
         searchQuery={searchQuery}
       />
       {loading ? (
-        <div className="shop-container my-[3rem]">
+        <div className="shop-container my-[3rem] h-[100vh]">
           <div className="flex flex-col items-center gap-5 justify-center">
             <BallTriangle stroke="#57bfdc" speed={1} fontSize={200} />
             <p className="text-[#57bfdc] text-2xl font-semibold">Loading...</p>
@@ -58,7 +58,7 @@ const AllProducts = () => {
         </div>
       ) : searchQuery === "" ? (
         <div className="shop-container grid sm:grid-cols-2 lg:grid-cols-4 justify-center gap-5 my-[3rem]">
-          {filteredProducts?.map((product) => (
+          {sortedProducts?.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
