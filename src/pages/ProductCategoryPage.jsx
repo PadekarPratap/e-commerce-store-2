@@ -35,7 +35,7 @@ const ProductCategoryPage = () => {
     })
 
     const searchedProducts = categoryProducts?.filter((prd) =>{
-        return prd.title.toLowerCase().includes(searchQuery)
+        return prd.title.toLowerCase().includes(searchQuery) 
     })
 
   return (
@@ -57,12 +57,16 @@ const ProductCategoryPage = () => {
                     <ProductCard  key={prd.id} product={prd} />    
                 ))}
             </div>
-            ) : (
+            ) : searchedProducts.length ? (
                 <div className='grid md:grid-cols-2 lg:grid-cols-4 justify-center gap-5'>
-                {searchedProducts?.map((prd) =>(
+                { searchedProducts?.map((prd) =>(
                     <ProductCard  key={prd.id} product={prd} />    
                 ))}
             </div>
+            ) : (
+                <div className='text-center text-3xl h-[80vh]'>
+                    <p>No results found for "{searchQuery}"</p>
+                </div>
             )}
         </div>
         <Footer />

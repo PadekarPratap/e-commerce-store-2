@@ -62,11 +62,15 @@ const AllProducts = () => {
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
-      ) : (
+      ) : productSearch.length ? (
         <div className="shop-container grid sm:grid-cols-2 lg:grid-cols-4 justify-center gap-5 my-[3rem]">
           {productSearch?.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
+        </div>
+      ) :(
+        <div className="h-[80vh] text-center text-3xl">
+          <p>No results found for "{searchQuery}"</p>
         </div>
       )}
       <Footer />
