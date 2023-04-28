@@ -72,7 +72,7 @@ const Navbar = () => {
             </div>
 
             {/* cart icon  */}
-            <div className="cursor-pointer">
+            <div className="cursor-pointer" role="button" onClick={() => navigate('/cart')}>
               <AiOutlineShoppingCart size={32} color="#525254" />
             </div>
 

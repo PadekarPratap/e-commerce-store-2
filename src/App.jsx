@@ -6,6 +6,7 @@ import ProductCategoryPage from './pages/ProductCategoryPage'
 import ProductDetailsPage from './pages/ProductDetailsPage'
 import WishListPage from './pages/WishListPage'
 import { Toaster } from 'react-hot-toast'
+import CartPage from './pages/CartPage'
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
             <Route path='/products/category/:categoryName' element={<ProductCategoryPage />}  />
             <Route path='/products/:id' element={<ProductDetailsPage />}  />
             <Route path='/wishlist' element={<WishListPage />}  />
+            <Route path='/cart' element={<CartPage />}  />
         </Routes>
         <Toaster position='bottom-right' />
     </>

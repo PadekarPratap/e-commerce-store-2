@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import { HiShoppingCart } from "react-icons/hi";
-import { BsFillHeartFill } from "react-icons/bs";
+import { BsFillHeartFill,BsFillCartCheckFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST } from "../redux/slice/cartSlice";
+import {
+  ADD_TO_CART,
+  ADD_TO_WISHLIST,
+  REMOVE_FROM_WISHLIST,
+} from "../redux/slice/cartSlice";
 import { toast } from "react-hot-toast";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
-  const wishList = useSelector((state) => state.Cart.wishList)
-  const dispatch = useDispatch()
+  const wishList = useSelector((state) => state.Cart.wishList);
+  const cart = useSelector((state) => state.Cart.cart);
+  const dispatch = useDispatch();
 
   const ProductPrice = (index) => {
     const price = product.price + "";
@@ -22,18 +27,30 @@ const ProductCard = ({ product }) => {
     window.scrollTo(0, 0);
   };
 
-  const handleWishList = () =>{
-    const item = wishList.find((item) => item.id === product.id)
-    if(item){
-      toast.success(`${product.title} has been successfully added to the Wish List`)
-      dispatch(REMOVE_FROM_WISHLIST(product))
-    }else{
-      toast.success(`${product.title} has been successfully removed from the Wish List`)
-      dispatch(ADD_TO_WISHLIST(product))
+  const handleWishList = () => {
+    const item = wishList.find((item) => item.id === product.id);
+    if (item) {
+      toast.success(
+        `${product.title} has been successfully added to the Wish List`
+      );
+      dispatch(REMOVE_FROM_WISHLIST(product));
+    } else {
+      toast.success(
+        `${product.title} has been successfully removed from the Wish List`
+      );
+      dispatch(ADD_TO_WISHLIST(product));
     }
-  }
+  };
 
-  const wishListItem = wishList.find((item) => item.id === product.id)
+  const handleAddToCart = () => {
+    if (!isItemInCart) {
+      dispatch(ADD_TO_CART(product));
+      toast.success(`${product?.title} has been added to your cart!`)
+    }
+  };
+
+  const wishListItem = wishList.find((item) => item.id === product.id);
+  const isItemInCart = cart.find((item) => item.id === product.id);
 
   return (
     <div className="max-w-[350px] min-h-[400px] border-2 rounded-lg relative">
@@ -77,16 +94,25 @@ const ProductCard = ({ product }) => {
 
         {/* add to cart button  */}
         <div>
-          <button className="w-full py-2 bg-shopDarkBlue text-white rounded-md">
-            <HiShoppingCart className="inline mr-2" />
-            Add to cart
+          <button
+            onClick={handleAddToCart}
+            className={`w-full py-2 text-white rounded-md ${isItemInCart ? 'bg-[#0a296d]' : 'bg-shopDarkBlue'}`}
+          >
+            {isItemInCart ? <BsFillCartCheckFill className="inline mr-2" /> : <HiShoppingCart className="inline mr-2" />}
+            {isItemInCart ? "Added to Cart" : "Add to Cart"}
           </button>
         </div>
       </div>
 
       {/* heart favourite icon  */}
-      <div onClick={handleWishList} className="absolute top-3 right-3 cursor-pointer" role="button">
-        <BsFillHeartFill className={`${wishListItem ? 'text-red-500' : '#464649'}`} />
+      <div
+        onClick={handleWishList}
+        className="absolute top-3 right-3 cursor-pointer"
+        role="button"
+      >
+        <BsFillHeartFill
+          className={`${wishListItem ? "text-red-500" : "#464649"}`}
+        />
       </div>
     </div>
   );
