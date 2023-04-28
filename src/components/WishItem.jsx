@@ -1,15 +1,32 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { REMOVE_FROM_WISHLIST } from '../redux/slice/cartSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { ADD_TO_CART, REMOVE_FROM_CART, REMOVE_FROM_WISHLIST } from '../redux/slice/cartSlice'
+import { toast } from 'react-hot-toast'
 
 const WishItem = ({WishItem}) => {
 
     const dispatch = useDispatch()
+    const cart = useSelector((state) => state.Cart.cart)
+    const isItemInCart = cart.find((item) => item.id === WishItem.id)
 
     const handlePrice = (ind) =>{
         const price = WishItem?.price + ''
         const priceArr = price.split(".")
         return priceArr[ind]
+    }
+
+    const handleAddToCart = () =>{
+        if(!isItemInCart){
+            dispatch(ADD_TO_CART(WishItem))
+            toast.success(`${WishItem.title} has been successfully added to the Cart!`)
+        }
+    }
+
+    const handleRemoveFromCart = () =>{
+        if(isItemInCart){
+            dispatch(REMOVE_FROM_CART(WishItem))
+            toast.success(`${WishItem.title} has been successfully removed from the Cart!`)
+        }
     }
 
   return (
@@ -27,8 +44,8 @@ const WishItem = ({WishItem}) => {
 
             {/* cart buttons  */}
             <div className='md:space-x-2 space-y-3 md:space-y-0'>
-            <button className='bg-shopBlue text-white px-4 py-1  rounded mr-3 md:mr-0'>Add to Cart</button>
-            <button className=' bg-black text-white px-4 py-1 rounded mr-3 md:mr-0'>Remove from Cart</button>
+            <button onClick={handleAddToCart} className='bg-shopBlue text-white px-4 py-1  rounded mr-3 md:mr-0'>{isItemInCart ? 'Added to Cart' : 'Add to Cart'}</button>
+            <button disabled={!isItemInCart} onClick={handleRemoveFromCart} className={`text-white px-4 py-1 rounded mr-3 md:mr-0 ${isItemInCart ? 'bg-black' : 'bg-black/50'}`}>Remove from Cart</button>
             <button onClick={() => dispatch(REMOVE_FROM_WISHLIST(WishItem))} className='bg-red-500 text-white px-4 py-1 rounded md:hidden'>Remove</button>
             </div>
         </div>
