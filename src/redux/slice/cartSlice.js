@@ -1,8 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const getWishList = () =>{
+    const wishList = JSON.parse(sessionStorage.getItem("Cart"))
+    if(wishList){
+        return wishList
+    }else{
+        return []
+    }
+}
 
 const initialState ={
-    wishList: []
+    wishList: getWishList()
 }
 
 export const cartSlice = createSlice({
@@ -15,13 +23,16 @@ export const cartSlice = createSlice({
                 const index = state.wishList.findIndex((item) => item.id === action.payload.id)
                 if(index === -1){
                     state.wishList.push(action.payload)
+                    sessionStorage.setItem('Cart', JSON.stringify(state.wishList))
                 }
             }else{
                 state.wishList.push(action.payload)
+                sessionStorage.setItem('Cart', JSON.stringify(state.wishList))
             }
         },
         REMOVE_FROM_WISHLIST: (state, action) =>{
             state.wishList = state.wishList.filter((item) => item.id !== action.payload.id)
+            sessionStorage.setItem('Cart', JSON.stringify(state.wishList))
         }
     }
 })
