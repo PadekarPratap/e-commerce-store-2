@@ -8,7 +8,7 @@ const Categories = () => {
     // console.log(prdCategory)
   return (
     <div className='shop-container mt-8 mb-12'>
-       <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
+       <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center'>
        {prdCategory?.map((category) => (
             <CategoriesCard key={category} category={category} />
             ))}

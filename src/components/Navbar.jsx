@@ -5,11 +5,13 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsHeartFill } from "react-icons/bs";
 import { BiMenu } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSideNavOpen, setIsSideNavOpen] = useState(false);
+
+  const navigate = useNavigate()
 
   const handleMobileSidebar = () => {
     setIsSideNavOpen((prevState) => !prevState)
@@ -33,7 +35,7 @@ const Navbar = () => {
               className="cursor-pointer relative hidden sm:block z-[999]"
             >
               <div
-                className="flex items-center border-2 p-2 rounded-md gap-2"
+                className="flex items-center border-2 p-2 rounded-md gap-2 bg-white"
                 role="button"
                 onClick={() => setIsDropdownOpen((prev) => !prev)}
               >
@@ -64,7 +66,7 @@ const Navbar = () => {
             <div onClick={() => setIsDropdownOpen(!isDropdownOpen)} className={isDropdownOpen ? "fixed inset-0 z-[998]" : 'hidden'}></div>
 
             {/* wishlist */}
-            <div className="items-center gap-1 cursor-pointer hidden sm:flex">
+            <div className="items-center gap-1 cursor-pointer hidden sm:flex" role="button" onClick={() => navigate('/wishList')}>
               <p className="text-xl font-poppins">Wishlist</p>
               <BsHeartFill size={20} color="#ef4444" />
             </div>

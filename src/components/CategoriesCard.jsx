@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom'
 import {BsArrowRight} from 'react-icons/bs'
 
 const CategoriesCard = ({category}) => {
-
     const [isArrowVisible, setIsArrowVisible] = useState(false)
     const navigate = useNavigate()
     const getCardImage = () => {
@@ -38,7 +37,7 @@ const CategoriesCard = ({category}) => {
         {/* card content  */}
         <div className='p-4 space-y-5 text-center'>
             <h2 className='text-xl font-poppins capitalize'>{category}</h2>
-            <button onMouseLeave={handleArrow} onMouseEnter={handleArrow} onClick={() => navigate('/')} className='bg-shopDarkBlue text-white px-4 py-2 rounded-md'>View Category <BsArrowRight className={`${isArrowVisible ? 'inline' : 'hidden'}`} /></button>
+            <button onClick={() => navigate(`/products/category/${category}`)} onMouseLeave={handleArrow} onMouseEnter={handleArrow} className='bg-shopDarkBlue text-white px-4 py-2 rounded-md'>View Category <BsArrowRight className={`${isArrowVisible ? 'inline' : 'hidden'}`} /></button>
         </div>
     </div>
   )
