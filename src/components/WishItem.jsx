@@ -1,6 +1,10 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { REMOVE_FROM_WISHLIST } from '../redux/slice/cartSlice'
 
 const WishItem = ({WishItem}) => {
+
+    const dispatch = useDispatch()
 
     const handlePrice = (ind) =>{
         const price = WishItem?.price + ''
@@ -22,16 +26,16 @@ const WishItem = ({WishItem}) => {
             <p className='text-2xl font-bold font-robotoMono mt-3'><span className='text-sm font-thin text-gray-600'>$</span>{handlePrice(0)}<sup className='text-sm text-gray-600 font-thin'>{handlePrice(1)}</sup></p>
 
             {/* cart buttons  */}
-            <div className='md:space-x-2 space-y-3'>
+            <div className='md:space-x-2 space-y-3 md:space-y-0'>
             <button className='bg-shopBlue text-white px-4 py-1  rounded mr-3 md:mr-0'>Add to Cart</button>
-            <button className=' bg-black text-white px-4 py-1 rounded'>Remove from Cart</button>
-            <button className='bg-red-500 text-white px-4 py-1 rounded md:hidden'>Remove</button>
+            <button className=' bg-black text-white px-4 py-1 rounded mr-3 md:mr-0'>Remove from Cart</button>
+            <button onClick={() => dispatch(REMOVE_FROM_WISHLIST(WishItem))} className='bg-red-500 text-white px-4 py-1 rounded md:hidden'>Remove</button>
             </div>
         </div>
         
         {/* buttons  */}
         <div className='basis-[15%] px-4 space-y-3 items-center justify-center hidden md:flex'>
-            <button className='bg-red-500 text-white px-4 py-1 rounded'>Remove</button>
+            <button onClick={() => dispatch(REMOVE_FROM_WISHLIST(WishItem))} className='bg-red-500 text-white px-4 py-1 rounded'>Remove</button>
         </div>
     </div>
   )
