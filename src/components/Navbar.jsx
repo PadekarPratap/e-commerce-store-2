@@ -6,16 +6,19 @@ import { BsHeartFill } from "react-icons/bs";
 import { BiMenu } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSideNavOpen, setIsSideNavOpen] = useState(false);
 
-  const navigate = useNavigate()
+  const itemsInCart = useSelector((state) => state.Cart.ItemsInCart);
+
+  const navigate = useNavigate();
 
   const handleMobileSidebar = () => {
-    setIsSideNavOpen((prevState) => !prevState)
-  }
+    setIsSideNavOpen((prevState) => !prevState);
+  };
   return (
     <>
       <div className="shop-container py-[1.2rem]">
@@ -49,7 +52,7 @@ const Navbar = () => {
               <div
                 id="dropdown-content"
                 className={`bg-white border-2 rounded mt-3 absolute left-0 right-0 p-1 duration-200 ${
-                    isDropdownOpen
+                  isDropdownOpen
                     ? "opacity-100"
                     : "opacity-0 pointer-events-none translate-y-[-10px]"
                 }`}
@@ -61,26 +64,41 @@ const Navbar = () => {
                 </ul>
               </div>
             </div>
-            
+
             {/* overlay for when the dropdown is Open  */}
-            <div onClick={() => setIsDropdownOpen(!isDropdownOpen)} className={isDropdownOpen ? "fixed inset-0 z-[998]" : 'hidden'}></div>
+            <div
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className={isDropdownOpen ? "fixed inset-0 z-[998]" : "hidden"}
+            ></div>
 
             {/* wishlist */}
-            <div className="items-center gap-1 cursor-pointer hidden sm:flex" role="button" onClick={() => navigate('/wishList')}>
+            <div
+              className="items-center gap-1 cursor-pointer hidden sm:flex"
+              role="button"
+              onClick={() => navigate("/wishList")}
+            >
               <p className="text-xl font-poppins">Wishlist</p>
               <BsHeartFill size={20} color="#ef4444" />
             </div>
 
             {/* cart icon  */}
-            <div className="cursor-pointer" role="button" onClick={() => navigate('/cart')}>
+            <div
+              className="cursor-pointer relative"
+              role="button"
+              onClick={() => navigate("/cart")}
+            >
               <AiOutlineShoppingCart size={32} color="#525254" />
+
+              {/* items in cart number over the cart icon  */}
+              {itemsInCart > 0 && (
+                <div className="absolute w-[25px] h-[25px] bg-red-500 text-white top-[-9px] right-[-11px] rounded-full flex items-center justify-center">
+                  {itemsInCart}
+                </div>
+              )}
             </div>
 
             {/* mobile hamburger menu  */}
-            <div
-              className="sm:hidden"
-              onClick={handleMobileSidebar}
-            >
+            <div className="sm:hidden" onClick={handleMobileSidebar}>
               <BiMenu size={30} />
             </div>
           </div>
@@ -88,10 +106,19 @@ const Navbar = () => {
       </div>
 
       {/* overlay for naviagtion on mobile  */}
-      <div className={`fixed inset-0 bg-black/50 duration-300 ${!isSideNavOpen && 'hidden'}`} onClick={handleMobileSidebar}></div>
+      <div
+        className={`fixed inset-0 bg-black/50 duration-300 ${
+          !isSideNavOpen && "hidden"
+        }`}
+        onClick={handleMobileSidebar}
+      ></div>
 
       {/* fixed side navigation for mobile devices  */}
-      <div className={`fixed h-full w-2/3 bg-white z-[999] top-0 duration-500 ${isSideNavOpen ? 'left-0' : 'left-[-100%]'}`}>
+      <div
+        className={`fixed h-full w-2/3 bg-white z-[999] top-0 duration-500 ${
+          isSideNavOpen ? "left-0" : "left-[-100%]"
+        }`}
+      >
         <div className="py-8 px-3">
           {/* Shop Logo  */}
           <div className="mb-12 flex items-center justify-between">
@@ -101,7 +128,7 @@ const Navbar = () => {
 
             {/* navigation close btn  */}
             <div role="button" onClick={handleMobileSidebar}>
-                <AiOutlineClose size={30} />
+              <AiOutlineClose size={30} />
             </div>
           </div>
 
@@ -113,12 +140,16 @@ const Navbar = () => {
 
           {/* login button  */}
           <div className="text-center mt-5">
-            <button className="2xl font-poppins font-bold border-2 px-4 py-2 rounded-md bg-gray-200">Login</button>
+            <button className="2xl font-poppins font-bold border-2 px-4 py-2 rounded-md bg-gray-200">
+              Login
+            </button>
           </div>
 
           {/* sign up btn  */}
           <div className="text-center mt-5">
-          <button className="2xl font-poppins font-bold border-2 px-4 py-2 rounded-md bg-gray-200">Sign up</button>
+            <button className="2xl font-poppins font-bold border-2 px-4 py-2 rounded-md bg-gray-200">
+              Sign up
+            </button>
           </div>
         </div>
       </div>

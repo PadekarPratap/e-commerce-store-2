@@ -18,10 +18,19 @@ const getCart = () => {
     }
 }
 
+const getItemsInCart = () =>{
+  const cart = JSON.parse(sessionStorage.getItem('Cart'))
+  if(cart){
+    return cart.length
+  }else{
+    return 0
+  }
+}
+
 const initialState = {
   wishList: getWishList(),
   cart: getCart(),
-  ItemsInCart: 0
+  ItemsInCart: getItemsInCart()
 };
 
 export const cartSlice = createSlice({

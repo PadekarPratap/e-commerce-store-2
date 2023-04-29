@@ -26,7 +26,7 @@ const CartPage = () => {
       <CategoriesBar />
       <div className="shop-container mt-5">
         <h2 className="text-4xl capitalize font-thin">Cart</h2>
-        {cart ? (
+        {cart.length === 0 ? (
           <div className="text-center min-h-[80vh]">
             <h2 className="text-3xl font-thin">
               Your shopping cart is empty...
