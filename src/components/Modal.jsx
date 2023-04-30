@@ -20,7 +20,7 @@ const Modal = () => {
     <div id='overlay' onClick={() => dispatch(CHANGE_MODAL())} className='fixed inset-0 w-[100%] h-[100%] bg-black/50 z-[1000]'>
 
         {/* modal container  */}
-        <div id='modalContainer' onClick={(e) => e.stopPropagation()} className='bg-white max-w-[700px] w-[100%] min-h-[200px] fixed left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] rounded-lg p-8 shadow-xl shadow-black/50 mx-1'>      
+        <div id='modalContainer' onClick={(e) => e.stopPropagation()} className='bg-white max-w-[700px] w-[100%] min-h-[200px] fixed left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] rounded-lg p-8 shadow-xl shadow-black/50'>      
                 <ImCross onClick={() => dispatch(CHANGE_MODAL())} role='button' className='absolute top-3 right-3 cursor-pointer' />
                 
                 {/* modal content   */}
