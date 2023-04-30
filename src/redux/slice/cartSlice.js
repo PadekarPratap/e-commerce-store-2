@@ -30,7 +30,9 @@ const getItemsInCart = () =>{
 const initialState = {
   wishList: getWishList(),
   cart: getCart(),
-  ItemsInCart: getItemsInCart()
+  ItemsInCart: getItemsInCart(),
+  modalOpen: false,
+  productInModal: {}
 };
 
 export const cartSlice = createSlice({
@@ -106,8 +108,14 @@ export const cartSlice = createSlice({
       );
       sessionStorage.setItem("wishCart", JSON.stringify(state.wishList));
     },
+    CHANGE_MODAL: (state) =>{
+      state.modalOpen = !state.modalOpen
+    },
+    ADD_PRODUCT_IN_MODAL: (state, action) => {
+      state.productInModal = action.payload
+    }
   },
 });
 
-export const { ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST, ADD_TO_CART, REMOVE_FROM_CART, INCREASE_QUANTITY, DECREASE_QUANTITY } = cartSlice.actions;
+export const { ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST, ADD_TO_CART, REMOVE_FROM_CART, INCREASE_QUANTITY, DECREASE_QUANTITY, CHANGE_MODAL, ADD_PRODUCT_IN_MODAL } = cartSlice.actions;
 export default cartSlice.reducer;

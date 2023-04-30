@@ -1,7 +1,7 @@
 import React from "react";
 import { BsTrash3Fill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { DECREASE_QUANTITY, INCREASE_QUANTITY, REMOVE_FROM_CART } from "../redux/slice/cartSlice";
+import { ADD_PRODUCT_IN_MODAL, CHANGE_MODAL, DECREASE_QUANTITY, INCREASE_QUANTITY, REMOVE_FROM_CART } from "../redux/slice/cartSlice";
 import { useNavigate } from "react-router-dom";
 
 const CartCard = ({ cartItem }) => {
@@ -11,6 +11,11 @@ const CartCard = ({ cartItem }) => {
     const getProductDetails = () => {
         navigate(`/products/${cartItem.id}`)
         window.scrollTo(0,0)
+    }
+
+    const handleModal = () =>{
+      dispatch(CHANGE_MODAL())
+      dispatch(ADD_PRODUCT_IN_MODAL(cartItem))
     }
 
   return (
@@ -54,7 +59,7 @@ const CartCard = ({ cartItem }) => {
           <button onClick={() => dispatch(INCREASE_QUANTITY(cartItem))} className="bg-gray-100  w-[35px] h-[35px] rounded-lg">
             +
           </button>
-          <button onClick={() => dispatch(REMOVE_FROM_CART(cartItem))} className="bg-red-500 w-[35px] h-[35px] rounded-lg text-white">
+          <button onClick={handleModal} className="bg-red-500 w-[35px] h-[35px] rounded-lg text-white">
             <BsTrash3Fill className="inline" />
           </button>
         </div>
