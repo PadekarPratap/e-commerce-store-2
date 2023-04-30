@@ -29,8 +29,8 @@ const Modal = () => {
 
                     {/* buttons  */}
                     <div className='mt-8 text-center space-y-3 space-x-3'>
-                        <button onClick={handleRemoveFromCart} className='bg-red-500 px-4 py-2 text-white rounded-md'><span className='font-bold'>Yes,</span> Delete this product</button>
-                        <button onClick={() => dispatch(CHANGE_MODAL())} className='bg-shopDarkBlue text-white px-4 py-2 rounded-md'>Cancel</button>
+                        <button onClick={handleRemoveFromCart} className='bg-red-500 px-4 py-2 text-white rounded-md hover:bg-red-600'><span className='font-bold'>Yes,</span> Delete this product</button>
+                        <button onClick={() => dispatch(CHANGE_MODAL())} className='bg-shopDarkBlue hover:bg-[#0a2869] text-white px-4 py-2 rounded-md'>Cancel</button>
                     </div>
 
                 </div>

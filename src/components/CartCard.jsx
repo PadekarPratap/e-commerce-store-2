@@ -59,7 +59,7 @@ const CartCard = ({ cartItem }) => {
           <button onClick={() => dispatch(INCREASE_QUANTITY(cartItem))} className="bg-gray-100  w-[35px] h-[35px] rounded-lg">
             +
           </button>
-          <button onClick={handleModal} className="bg-red-500 w-[35px] h-[35px] rounded-lg text-white">
+          <button onClick={handleModal} className="bg-red-500 hover:bg-red-700 w-[35px] h-[35px] rounded-lg text-white">
             <BsTrash3Fill className="inline" />
           </button>
         </div>
