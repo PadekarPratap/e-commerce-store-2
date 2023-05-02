@@ -53,7 +53,7 @@ const AllProducts = () => {
         <div className="shop-container my-[3rem] h-[100vh]">
           <div className="flex flex-col items-center gap-5 justify-center">
             <BallTriangle stroke="#57bfdc" speed={1} fontSize={200} />
-            <p className="text-[#57bfdc] text-2xl font-semibold">Loading...</p>
+            <p className="text-[#57bfdc] text-2xl font-semibold">Loading, please wait...</p>
           </div>
         </div>
       ) : searchQuery === "" ? (

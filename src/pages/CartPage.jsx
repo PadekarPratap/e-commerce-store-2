@@ -28,10 +28,10 @@ const CartPage = () => {
         <h2 className="text-4xl capitalize font-thin">Cart</h2>
         {cart.length === 0 ? (
           <div className="text-center min-h-[80vh]">
-            <h2 className="text-3xl font-thin">
+            <h2 className="mt-8 sm:mt-0 text-3xl font-thin">
               Your shopping cart is empty...
             </h2>
-            <div className="mt-7 space-x-3">
+            <div className="mt-7 space-x-3 space-y-4 sm:space-y-0">
               <button
                 onClick={() => navigate("/")}
                 className="bg-shopDarkBlue text-white px-4 py-1 rounded-md"

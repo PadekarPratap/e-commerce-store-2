@@ -48,7 +48,7 @@ const ProductCategoryPage = () => {
                 <div className='h-[100vh]'>
                     <div className='flex flex-col items-center mt-16'>
                     <BallTriangle stroke='#57bfdc' speed={1} fontFamily='150' />
-                    <p className='text-2xl font-semibold text-[#57bfdc]'>Loading...</p>
+                    <p className='text-2xl font-semibold text-[#57bfdc]'>Loading, please wait...</p>
                 </div>
                 </div>
             ) : searchQuery === "" ? (

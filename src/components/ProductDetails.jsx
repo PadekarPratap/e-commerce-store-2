@@ -31,7 +31,7 @@ const ProductDetails = () => {
             <div className='h-[80vh]'>
                <div className='mt-[5rem]'>
                <SpinningCircles stroke='#06bcee' fill='#06bcee' className='mx-auto' />
-                <p className='text-center text-xl font-bold text-[#06bcee] mt-2'>Loading...</p>
+                <p className='text-center text-xl font-bold text-[#06bcee] mt-2'>Loading, please wait...</p>
                </div>
             </div>
         )
