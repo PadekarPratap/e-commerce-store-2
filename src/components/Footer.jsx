@@ -5,7 +5,7 @@ import {ImLinkedin} from 'react-icons/im'
 
 const Footer = () => {
   return (
-    <div className='bg-[#18181a] w-full'>
+    <div className='bg-[#020c1b] w-full'>
         <div className='shop-container py-[1%]'>
             {/* Logo and tagline  */}
             <div className='text-center'>

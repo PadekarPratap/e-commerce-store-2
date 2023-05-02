@@ -107,7 +107,7 @@ const Navbar = () => {
 
       {/* overlay for naviagtion on mobile  */}
       <div
-        className={`fixed inset-0 bg-black/50 duration-300 ${
+        className={`fixed inset-0 bg-black/50 duration-300 z-10 ${
           !isSideNavOpen && "hidden"
         }`}
         onClick={handleMobileSidebar}
@@ -122,9 +122,9 @@ const Navbar = () => {
         <div className="py-8 px-3">
           {/* Shop Logo  */}
           <div className="mb-12 flex items-center justify-between">
-            <h1 className="text-3xl font-poppins uppercase">
+            <Link to={'/'} className="text-3xl font-poppins uppercase">
               Shop<span className="text-shopBlue">Lane</span>
-            </h1>
+            </Link>
 
             {/* navigation close btn  */}
             <div role="button" onClick={handleMobileSidebar}>
@@ -133,21 +133,21 @@ const Navbar = () => {
           </div>
 
           {/* wishlist for mobile nav  */}
-          <div className="items-center flex gap-2 justify-center">
+          <div className="items-center flex gap-2 justify-center" role="button" onClick={() => navigate('/wishlist')}>
             <p className="text-xl font-poppins">Wishlist</p>
             <BsHeartFill size={20} color="#ef4444" />
           </div>
 
           {/* login button  */}
           <div className="text-center mt-5">
-            <button className="2xl font-poppins font-bold border-2 px-4 py-2 rounded-md bg-gray-200">
+            <button className="2xl font-poppins font-bold border-2 px-4 py-2 rounded-md bg-gray-200" onClick={() => navigate('/login')}>
               Login
             </button>
           </div>
 
           {/* sign up btn  */}
           <div className="text-center mt-5">
-            <button className="2xl font-poppins font-bold border-2 px-4 py-2 rounded-md bg-gray-200">
+            <button className="2xl font-poppins font-bold border-2 px-4 py-2 rounded-md bg-gray-200" onClick={() => navigate('/signup')}>
               Sign up
             </button>
           </div>

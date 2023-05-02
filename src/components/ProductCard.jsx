@@ -57,7 +57,7 @@ const ProductCard = ({ product }) => {
       {/* product card image  */}
       <div className="p-4" role="button" onClick={productDetails}>
         <img
-          className="max-w-[200px] h-[250px] mx-auto"
+          className="max-w-[200px] h-[250px] mx-auto hover:scale-110 duration-300"
           src={product.image}
           alt=""
         />
