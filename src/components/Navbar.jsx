@@ -5,7 +5,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsHeartFill } from "react-icons/bs";
 import { BiMenu } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
@@ -58,9 +58,9 @@ const Navbar = () => {
                 }`}
               >
                 <ul className="text-center space-y-2">
-                  <li className="font-poppins text-lg font-medium">Login</li>
+                  <li className="font-poppins text-lg font-medium"><Link to={'/login'}>Login</Link></li>
                   <hr />
-                  <li className="font-poppins text-lg font-medium">Sign up</li>
+                  <li className="font-poppins text-lg font-medium"><Link to={'/signup'}>Sign up</Link></li>
                 </ul>
               </div>
             </div>
