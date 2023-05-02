@@ -3,9 +3,11 @@ import { useState } from "react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { Link } from "react-router-dom";
+import {FaEye, FaEyeSlash} from 'react-icons/fa'
 
 const SignUp = () => {
   const [value, setValue] = useState();
+  const [showPassword, setShowPassword] = useState(false)
 
   return (
     <div className="shop-container my-8">
@@ -130,16 +132,17 @@ const SignUp = () => {
                 placeholder="Enter a unique username"
               />
             </div>
-            <div className="flex-1">
+            <div className="flex-1 relative">
               <label htmlFor="password" className="block mb-1 font-poppins">
                 Password
               </label>
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 className="input-control w-full"
                 id="password"
                 placeholder="Enter a strong password"
               />
+              {showPassword ? <FaEye onClick={() => setShowPassword(!showPassword)} className="absolute top-[39px] right-[10px] cursor-pointer" size={22} /> : <FaEyeSlash onClick={() => setShowPassword(!showPassword)} className="absolute top-[39px] right-[10px] cursor-pointer" size={22} />}
             </div>
             <div className="flex-1">
               <label
