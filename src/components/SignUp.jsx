@@ -2,13 +2,13 @@ import React from "react";
 import { useState } from "react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const [value, setValue] = useState();
 
   return (
-    <div className="shop-container my-12">
+    <div className="shop-container my-8">
       <div className="max-w-[900px] bg-white rounded mx-auto p-5">
         <h1 className="text-2xl font-semibold font-poppins">Registration</h1>
         <hr className="bg-shopDarkBlue h-[5px] w-[30px] mt-[-5px]" />
@@ -43,7 +43,7 @@ const SignUp = () => {
                 Email
               </label>
               <input
-                type="text"
+                type="email"
                 id="email"
                 className="input-control w-full"
                 placeholder="Enter your email"
@@ -163,7 +163,7 @@ const SignUp = () => {
         </form>
 
         <div className="text-center mt-5">
-            <p>Already have an Account? <NavLink className={'text-blue-700'}>Login</NavLink></p>
+            <p>Already have an Account? <Link to={'/login'} className='text-blue-900 font-bold'>Login</Link></p>
         </div>
 
       </div>
