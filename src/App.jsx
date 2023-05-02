@@ -8,6 +8,8 @@ import WishListPage from "./pages/WishListPage";
 import { Toaster } from "react-hot-toast";
 import CartPage from "./pages/CartPage";
 import Modal from "./components/Modal";
+import LoginPage from "./pages/LoginPage";
+import SignUpPage from "./pages/SignUpPage";
 
 const App = () => {
   return (
@@ -22,8 +24,8 @@ const App = () => {
         <Route path="/products/:id" element={<ProductDetailsPage />} />
         <Route path="/wishlist" element={<WishListPage />} />
         <Route path="/cart" element={<CartPage />} />
-        {/* <Route path='*' element={<CartPage />}  /> */} // add a not found
-        page
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
       </Routes>
       <Modal />
       <Toaster position="bottom-right" />
