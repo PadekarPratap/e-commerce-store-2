@@ -10,11 +10,8 @@ const HomePage = () => {
 
   return (
     <div>
-        <Navbar />
-        <CategoriesBar />
         <Carousel />
         <Categories />
-        <Footer />
     </div>
   )
 }

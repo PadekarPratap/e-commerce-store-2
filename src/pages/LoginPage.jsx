@@ -6,7 +6,6 @@ const LoginPage = () => {
   return (
     <>
         <div className='fixed inset-0 w-full h-full bg-gray-100 z-[-10]'></div>
-        <Navbar />
         <Login />
     </>
   )

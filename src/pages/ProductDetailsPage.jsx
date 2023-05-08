@@ -8,11 +8,8 @@ import Footer from '../components/Footer'
 const ProductDetailsPage = () => {
   return (
     <div>
-        <Navbar />
-        <CategoriesBar />
         <GoBackBtn />
         <ProductDetails />
-        <Footer />
     </div>
   )
 }

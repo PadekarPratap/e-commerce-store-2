@@ -58,9 +58,23 @@ const Navbar = () => {
                 }`}
               >
                 <ul className="text-center space-y-2">
-                  <li className="font-poppins text-lg font-medium"><Link to={'/login'}>Login</Link></li>
+                  <li className="font-poppins text-lg font-medium">
+                    <Link
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      to={"/login"}
+                    >
+                      Login
+                    </Link>
+                  </li>
                   <hr />
-                  <li className="font-poppins text-lg font-medium"><Link to={'/signup'}>Sign up</Link></li>
+                  <li className="font-poppins text-lg font-medium">
+                    <Link
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      to={"/signup"}
+                    >
+                      Sign up
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -122,7 +136,11 @@ const Navbar = () => {
         <div className="py-8 px-3">
           {/* Shop Logo  */}
           <div className="mb-12 flex items-center justify-between">
-            <Link to={'/'} className="text-3xl font-poppins uppercase">
+            <Link
+              to={"/"}
+              onClick={handleMobileSidebar}
+              className="text-3xl font-poppins uppercase"
+            >
               Shop<span className="text-shopBlue">Lane</span>
             </Link>
 
@@ -133,21 +151,40 @@ const Navbar = () => {
           </div>
 
           {/* wishlist for mobile nav  */}
-          <div className="items-center flex gap-2 justify-center" role="button" onClick={() => navigate('/wishlist')}>
+          <div
+            className="items-center flex gap-2 justify-center"
+            role="button"
+            onClick={() => {
+              handleMobileSidebar();
+              navigate("/wishlist");
+            }}
+          >
             <p className="text-xl font-poppins">Wishlist</p>
             <BsHeartFill size={20} color="#ef4444" />
           </div>
 
           {/* login button  */}
           <div className="text-center mt-5">
-            <button className="2xl font-poppins font-bold border-2 px-4 py-2 rounded-md bg-gray-200" onClick={() => navigate('/login')}>
+            <button
+              className="2xl font-poppins font-bold border-2 px-4 py-2 rounded-md bg-gray-200"
+              onClick={() => {
+                handleMobileSidebar();
+                navigate("/login");
+              }}
+            >
               Login
             </button>
           </div>
 
           {/* sign up btn  */}
           <div className="text-center mt-5">
-            <button className="2xl font-poppins font-bold border-2 px-4 py-2 rounded-md bg-gray-200" onClick={() => navigate('/signup')}>
+            <button
+              className="2xl font-poppins font-bold border-2 px-4 py-2 rounded-md bg-gray-200"
+              onClick={() => {
+                handleMobileSidebar()
+                navigate("/signup");
+              }}
+            >
               Sign up
             </button>
           </div>

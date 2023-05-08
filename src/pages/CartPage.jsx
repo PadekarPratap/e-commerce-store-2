@@ -22,8 +22,6 @@ const CartPage = () => {
   return (
     <div>
       <div className="fixed inset-0 bg-gray-100 z-[-10]"></div>
-      <Navbar />
-      <CategoriesBar />
       <div className="shop-container mt-5">
         <h2 className="text-4xl capitalize font-thin">Cart</h2>
         {cart.length === 0 ? (
@@ -93,7 +91,6 @@ const CartPage = () => {
           </div>
         )}
       </div>
-      <Footer />
     </div>
   );
 };

@@ -96,7 +96,7 @@ const ProductCard = ({ product }) => {
         <div>
           <button
             onClick={handleAddToCart}
-            className={`w-full py-2 text-white rounded-md ${isItemInCart ? 'bg-[#0a296d]' : 'bg-shopDarkBlue'}`}
+            className={`w-full py-2 text-white rounded-md active:scale-95 ${isItemInCart ? 'bg-[#0a296d]' : 'bg-shopDarkBlue'}`}
           >
             {isItemInCart ? <BsFillCartCheckFill className="inline mr-2" /> : <HiShoppingCart className="inline mr-2" />}
             {isItemInCart ? "Added to Cart" : "Add to Cart"}

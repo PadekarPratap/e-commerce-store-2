@@ -40,8 +40,6 @@ const ProductCategoryPage = () => {
 
   return (
     <div>
-        <Navbar />
-        <CategoriesBar />
         <TitleBar title={categoryName} setFilteredValue={setFilteredValue} setSearchQuery={setSearchQuery} />
         <div className='shop-container mt-5 mb-12 '>
             {loading ? (
@@ -69,7 +67,6 @@ const ProductCategoryPage = () => {
                 </div>
             )}
         </div>
-        <Footer />
     </div>
   )
 }

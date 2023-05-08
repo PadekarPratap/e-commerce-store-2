@@ -42,8 +42,6 @@ const AllProducts = () => {
 
   return (
     <div>
-      <Navbar />
-      <CategoriesBar />
       <TitleBar
         setFilteredValue={setFilteredValue}
         setSearchQuery={setSearchQuery}
@@ -73,7 +71,6 @@ const AllProducts = () => {
           <p>No results found for "{searchQuery}"</p>
         </div>
       )}
-      <Footer />
     </div>
   );
 };

@@ -23,7 +23,7 @@ const Login = () => {
   })
 
   return (
-    <div className="shop-container my-8">
+    <div className="shop-container my-8 min-h-[80vh]">
       <div className="max-w-[450px] mx-auto min-h-[80px] bg-white rounded p-5">
         <div>
           <h1 className="text-2xl font-semibold font-poppins">Login</h1>
