@@ -31,12 +31,12 @@ const ProductCard = ({ product }) => {
     const item = wishList.find((item) => item.id === product.id);
     if (item) {
       toast.success(
-        `${product.title} has been successfully added to the Wish List`
+        `${product.title} has been successfully removed from the Wish List`
       );
       dispatch(REMOVE_FROM_WISHLIST(product));
     } else {
       toast.success(
-        `${product.title} has been successfully removed from the Wish List`
+        `${product.title} has been successfully added to the Wish List`
       );
       dispatch(ADD_TO_WISHLIST(product));
     }
